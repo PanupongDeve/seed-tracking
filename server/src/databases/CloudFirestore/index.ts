@@ -3,7 +3,7 @@ const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestor
 const serviceAccount = require('../../../configuretion/service-account.json');
 
 
-import { Operation } from './Operation'
+import { UsersDB } from './UserDB'
 
 class CloudFireStoreManger {
     db: any = null;
@@ -20,11 +20,11 @@ class CloudFireStoreManger {
         }
     }
 
-    getOperation(collection: any) {
+    getUserDB() {
         try {
             if (this.db !== null) {
                 
-                return new Operation(this.db, collection)
+                return new UsersDB(this.db, 'users')
             } else {
                 throw new ReferenceError("Cannot Call Cloud Firestore Operation")
             }

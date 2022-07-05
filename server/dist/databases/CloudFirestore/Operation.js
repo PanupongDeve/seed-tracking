@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Operation = void 0;
 const shortId_1 = require("../../utils/shortId");
-class Operation {
+class UsersDB {
     constructor(db, collection) {
         this.db = db;
         this.collection = collection;
@@ -32,19 +32,28 @@ class Operation {
             }
         });
     }
-    getByIds() {
+    getByIds(ids = []) {
         return __awaiter(this, void 0, void 0, function* () {
         });
     }
-    getById() {
+    getById(id) {
         return __awaiter(this, void 0, void 0, function* () {
+            const cityRef = this.db.collection(this.collection).doc(id);
+            const doc = yield cityRef.get();
+            if (!doc.exists) {
+                console.log('No such document!');
+            }
+            else {
+                console.log('Document data:', doc.data());
+            }
         });
     }
     create(value) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const docRef = this.db.collection(this.collection).doc((0, shortId_1.generateShortId)());
-                yield docRef.set(value);
+                value.id = (0, shortId_1.generateShortId)();
+                const docRef = this.db.collection(this.collection).doc(value.id);
+                yield docRef.set(JSON.parse(JSON.stringify(value)));
             }
             catch (error) {
                 console.log(error);
@@ -60,4 +69,3 @@ class Operation {
         });
     }
 }
-exports.Operation = Operation;
