@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.pn-header {
+    height: 56px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.25px solid #CED0D4;
+}
+
+.pn-header h1 {
+    display: inline-block;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bolder;
+}   
