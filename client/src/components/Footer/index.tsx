@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import {
+    useNavigate,
+  } from "react-router-dom";
+import { connect } from 'react-redux';
 import './style.css'
 
 import Paper from '@mui/material/Paper';
@@ -8,17 +11,25 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
-const Footer = () => {
-    const [value, setValue] = useState(0);
-    
+import { touchMenu } from '../../redux/menu/menu.action'
+import { getPathByActiveMenu } from './utils';
+
+const Footer = (props: any) => {
+    console.log('props', props)
+    let navigate = useNavigate();
+    const { menu, touchMenu } = props 
+    const { active } = menu 
+      
     return (
             <Paper className='pn-footer' sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
                     showLabels
-                    value={value}
+                    value={active}
                     onChange={(event, newValue) => {
                         console.log('new', newValue)
-                        setValue(newValue);
+                        touchMenu(newValue)
+                        navigate(getPathByActiveMenu(newValue))
+                        
                     }}
                     >
                     <BottomNavigationAction label="รายการ" icon={<AssignmentIcon />} />
@@ -29,4 +40,15 @@ const Footer = () => {
     )
 }
 
-export default Footer
+const mapStateToProps = ({ menu}: any) => ({
+    menu
+})
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+      touchMenu: (value: number) => dispatch(touchMenu(value))
+    }
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)
