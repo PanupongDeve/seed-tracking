@@ -7,7 +7,7 @@ const RequestButton = () => {
                 width: '100%',
                 fontSize: '1.6rem'
             }
-        } variant="contained" size="large">แจ้งรายการคำขอ</Button>
+        } variant="contained" size="large" color="primary">แจ้งรายการคำขอ</Button>
     )
 }
 

@@ -1,4 +1,4 @@
-.action-status {
+.action-request-status {
     color: #1f2b37;
     border-color: #969fa7;
     background-color: #d5d8dc;
@@ -8,13 +8,12 @@
     padding: 3px 15px;
     border-radius: 11px;
     border: 1px solid #aaa;
-}
 
-.request {
     color: #fff;
     background-color: rgba(13,110,253,1);
     border: 1px solid rgba(13,110,253,0.5);
 }
+
 
 .approve-btn {
     background-color: #00d1b2 !important;
