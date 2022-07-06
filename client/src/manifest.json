@@ -2,7 +2,7 @@
     "name": "Seed Tracking",
     "short_name": "Seed Tracking",
     "start_url": "/",
-    "display": "standalone",
+    "display": "browser",
     "theme_color": "#ffffff",
     "backgroud_color": "#ffffff"
 
