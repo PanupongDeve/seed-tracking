@@ -5,6 +5,10 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+
+import PendingProcess from '../PendingProcess'
+import ApproveProcess from '../ApproveProcess'
+import FinishProcess from '../FinishProcess'
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -55,13 +59,13 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        กำลังดำเนินการ
+        <PendingProcess />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <ApproveProcess />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Two
+        <FinishProcess />
       </TabPanel>
     </Box>
   );
