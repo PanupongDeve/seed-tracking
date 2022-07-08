@@ -2,15 +2,13 @@ import './style.css'
 
 
 import Grid from '@mui/material/Grid';
-import RequestButton from '../RequestButton'
 import ProcessCard from '../ProcessCard'
 import { sampleRequest }  from '../ProcessCard/utils'
 
-const PendingProcess = () => {
+const AdminApprovePending = () => {
     return (
         <Grid container>
             <Grid item xs={12} style={{ marginBottom: '50px'}}>
-                <RequestButton />
                 {
                         sampleRequest.map((item, index) => {
                             return (
@@ -21,8 +19,8 @@ const PendingProcess = () => {
                                     taskStatus={item.taskStatus}
                                     detail={item.detail}
                                     price={item.price}
-                                    isAction={false}
-                                    isCancelAction={false}
+                                    isAction={true}
+                                    isCancelAction={true}
                                 />
                             )
                         })
@@ -32,4 +30,4 @@ const PendingProcess = () => {
     )
 }
 
-export default PendingProcess
+export default AdminApprovePending

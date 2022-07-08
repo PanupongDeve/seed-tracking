@@ -36,7 +36,7 @@
 
 .card-btn {
     width: 100%;
-    font-size: 1.4rem;
+    font-size: 1.6rem !important;
 }
 
 
@@ -48,6 +48,11 @@
 
 .finish-btn {
     background-color: #48c78e !important;
+    box-shadow: none !important;
+}
+
+.cancel-btn {
+    background-color: #f14668 !important;
     box-shadow: none !important;
 }
 

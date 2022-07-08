@@ -5,6 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+import AdminApprovePending from '../AdminApprovePending'
+import AdminApproveFinish from '../AdminApproveFinish'
+
 import { touchTab }  from '../../redux/adminTabs/admintabs.action'
 
 
@@ -60,10 +63,10 @@ function AdminTabs(props: any) {
                 </Tabs>
             </Box>
             <TabPanel value={active} index={0}>
-                
+                <AdminApprovePending />
             </TabPanel>
             <TabPanel value={active} index={1}>
-                
+                <AdminApproveFinish />
             </TabPanel>
         </Box>
     )

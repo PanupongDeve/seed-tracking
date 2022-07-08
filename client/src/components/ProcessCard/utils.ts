@@ -12,33 +12,40 @@ export const selectCardUIByStatus = (status: any) => {
         return {
             text: {
                 status: 'รอการอนุมัติ',
-                btn: 'อนุมัติคำขอรายการ'
+                btn: 'อนุมัติคำขอรายการ',
+                btnCancel: 'ยกเลิกคำขอรายการ'
+                
             },
             classes: {
                 status: 'request',
-                btn: 'approve-btn'
+                btn: 'approve-btn',
+                btnCancel: 'cancel-btn'
             }
         }
     } else if (status === 'approve') {
         return {
             text: {
                 status: 'เริ่มดำเนินการ',
-                btn: 'ดำเนินการเสร็จสิ้น'
+                btn: 'ดำเนินการเสร็จสิ้น',
+                btnCancel: 'ยกเลิกคำขอรายการ'
             },
             classes: {
                 status: 'approve',
-                btn: 'approve-btn'
+                btn: 'approve-btn',
+                btnCancel: 'cancel-btn'
             }
         }
     } else if (status === 'finish') {
         return {
             text: {
                 status: 'ดำเนินการเรียบร้อย',
-                btn: ''
+                btn: '',
+                btnCancel: ''
             },
             classes: {
                 status: 'finish',
-                btn: ''
+                btn: '',
+                btnCancel: ''
             }
         }
     }else if (status === 'cancel') {

@@ -16,7 +16,8 @@ interface ProcessCardProps {
     taskStatus: string,
     detail: string,
     price: number,
-    isAction: boolean
+    isAction: boolean,
+    isCancelAction: boolean
 }
 
 const ProcessCard = (props: ProcessCardProps) => {
@@ -26,7 +27,8 @@ const ProcessCard = (props: ProcessCardProps) => {
         taskStatus,
         detail,
         price,
-        isAction
+        isAction,
+        isCancelAction
     } = props;
 
     const ui = selectCardUIByStatus(taskStatus)
@@ -58,6 +60,12 @@ const ProcessCard = (props: ProcessCardProps) => {
                 {isAction ?(
                      <CardActions>
                         <Button className={`card-btn ${classes.btn}`} variant="contained" size="small" color="success">{text.btn}</Button>     
+                    </CardActions>
+                ): ''}
+
+                {isCancelAction ? (
+                     <CardActions>
+                        <Button className={`card-btn ${classes.btnCancel}`} variant="contained" size="small" color="success">{text.btnCancel}</Button>     
                     </CardActions>
                 ): ''}
                 

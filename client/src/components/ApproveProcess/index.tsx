@@ -22,6 +22,7 @@ const ApproveProcess = () => {
                                     detail={item.detail}
                                     price={item.price}
                                     isAction={false}
+                                    isCancelAction={false}
                                 />
                             )
                         })
