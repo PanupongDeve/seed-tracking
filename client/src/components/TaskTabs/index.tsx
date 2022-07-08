@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import './styles.css'
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -12,7 +13,7 @@ import FinishProcess from '../FinishProcess'
 
 import { touchTab }  from '../../redux/taskTabas/tasktabs.action'
 
-import { connect } from 'react-redux';
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -47,7 +48,6 @@ function a11yProps(index: number) {
 }
 
 function BasicTabs(props: any) {
-  console.log('props', props)
   const { tasktabs, touchTab } = props 
   const { active } = tasktabs 
 

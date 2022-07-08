@@ -3,7 +3,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 import Header from '../components/Header'
-import TaskTabs from '../components/TaskTabs'
+import AdminTabs from '../components/AdminTabs'
 import Footer from '../components/Footer'
 
 
@@ -19,7 +19,7 @@ const AdminPage = () => {
     return (
         <Box>
             <Header />
-            Admin
+            <AdminTabs />
             <Footer />
         </Box>
     )
