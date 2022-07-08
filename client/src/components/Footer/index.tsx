@@ -15,7 +15,6 @@ import { touchMenu } from '../../redux/menu/menu.action'
 import { getPathByActiveMenu } from './utils';
 
 const Footer = (props: any) => {
-    console.log('props', props)
     let navigate = useNavigate();
     const { menu, touchMenu } = props 
     const { active } = menu 
