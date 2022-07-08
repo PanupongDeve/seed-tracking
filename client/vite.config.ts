@@ -8,6 +8,9 @@ export default defineConfig({
     react(),
     VitePWA({ 
       registerType: 'autoUpdate',
+      workbox: {
+        cleanupOutdatedCaches: false
+      },
       manifest: {
         "name": "Seed Tracking",
         "short_name": "Seed Tracking",

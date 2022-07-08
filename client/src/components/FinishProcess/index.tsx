@@ -1,16 +1,21 @@
 import './style.css'
+import { connect } from 'react-redux';
 import ProcessCard from '../ProcessCard'
 import { sampleFinish }  from '../ProcessCard/utils'
 
 import Grid from '@mui/material/Grid';
 import RequestButton from '../RequestButton'
+import { handleRequestClick } from '../../redux/requestButton/request-button.action'
 
 
-const FinishProcess = () => {
+const FinishProcess = (props: any) => {
+    const { requestButton,  handleRequestClick } = props;
+    const { isCancel } = requestButton;
+  
     return (
         <Grid container>
             <Grid item xs={12}>
-                <RequestButton />
+                <RequestButton handleClick={handleRequestClick} isCancel={isCancel} />
                 {
                     sampleFinish.map((item, index) => {
                         return (
@@ -22,6 +27,7 @@ const FinishProcess = () => {
                                 detail={item.detail}
                                 price={item.price}
                                 isAction={false}
+                                isCancelAction={false}
                             />
                         )
                     })
@@ -31,4 +37,14 @@ const FinishProcess = () => {
     )
 }
 
-export default FinishProcess
+const mapStateToProps = ({ requestButton }: any) => ({
+    requestButton
+  })
+  
+  const mapDispatchToProps = (dispatch: any) => {
+    return {
+        handleRequestClick: () => dispatch(handleRequestClick())
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(FinishProcess)

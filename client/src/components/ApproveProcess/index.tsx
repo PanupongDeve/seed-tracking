@@ -1,16 +1,21 @@
 import './style.css'
-
+import { connect } from 'react-redux';
 
 import Grid from '@mui/material/Grid';
 import RequestButton from '../RequestButton'
 import ProcessCard from '../ProcessCard'
 import { sampleApprove }  from '../ProcessCard/utils'
+import { handleRequestClick } from '../../redux/requestButton/request-button.action'
 
-const ApproveProcess = () => {
+
+const ApproveProcess = (props: any) => {
+    const { requestButton,  handleRequestClick } = props;
+    const { isCancel } = requestButton;
+  
     return (
         <Grid container>
             <Grid item xs={12} style={{ marginBottom: '50px'}}>
-                <RequestButton />
+                <RequestButton handleClick={handleRequestClick} isCancel={isCancel} />
                 {
                         sampleApprove.map((item, index) => {
                             return (
@@ -32,4 +37,14 @@ const ApproveProcess = () => {
     )
 }
 
-export default ApproveProcess
+const mapStateToProps = ({ requestButton }: any) => ({
+    requestButton
+  })
+  
+  const mapDispatchToProps = (dispatch: any) => {
+    return {
+        handleRequestClick: () => dispatch(handleRequestClick())
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApproveProcess)

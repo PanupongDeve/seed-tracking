@@ -1,13 +1,25 @@
+import './style.css'
 import Button from '@mui/material/Button';
 
-const RequestButton = () => {
+interface RequestButtonProps {
+    isCancel: boolean,
+    handleClick: Function
+} 
+
+const RequestButton = (props: RequestButtonProps) => {
+    const {
+        isCancel,
+        handleClick
+    } = props;
+
+    if (isCancel) {
+        return (
+            <Button onClick={() => handleClick() } className="operation-btn" variant="contained" size="large" color="error">ยกเลิก</Button>
+        )
+    }
+    
     return (
-        <Button style={
-            { 
-                width: '100%',
-                fontSize: '1.6rem'
-            }
-        } variant="contained" size="large" color="primary">แจ้งรายการคำขอ</Button>
+        <Button onClick={() => handleClick() } className="operation-btn" variant="contained" size="large" color="primary">แจ้งรายการคำขอ</Button>
     )
 }
 
